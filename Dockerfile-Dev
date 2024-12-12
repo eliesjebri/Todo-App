@@ -1,0 +1,17 @@
+# Utilise l'image officielle Node.js version 18 avec Alpine
+FROM node:18-alpine
+
+# Définit le répertoire de travail à l'intérieur du conteneur
+WORKDIR /app
+
+# Copie le contenu du répertoire local dans le conteneur
+COPY . .
+
+# Installe les dépendances
+RUN yarn install --production=false
+
+# Expose le port utilisé par l'application
+EXPOSE 3000
+
+# Commande par défaut pour démarrer l'application
+CMD ["yarn", "run", "dev"]
